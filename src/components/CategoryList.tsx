@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const CategoryList = () => {
+const CategoryList = async () => {
+  // const cat = wixClient.collections.queryCollections().find()
+
   return (
     <div className="px-4 overflow-x-scroll scrollbar-hide scroll-smooth">
       <div className="flex gap-4 md:gap-8">

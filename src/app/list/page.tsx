@@ -1,7 +1,7 @@
 import Filter from "@/components/Filter";
 import ProductList from "@/components/ProductList";
+import Skeleton from "@/components/Skeleton";
 import { wixClientServer } from "@/lib/wixClientServer";
-// import Skeleton from "@/components/Skeleton";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -21,7 +21,7 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
             Grab up to 50% off on
             <br /> Selected Products
           </h1>
-          <button className="rounded-3xl bg-kallos text-white w-max py-3 px-5 text-sm">
+          <button className="rounded-3xl bg-lama text-white w-max py-3 px-5 text-sm">
             Buy Now
           </button>
         </div>
@@ -32,8 +32,10 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
       {/* FILTER */}
       <Filter />
       {/* PRODUCTS */}
-      <h1 className="mt-12 text-xl font-semibold"> For You!</h1>
-      <Suspense fallback={<div>Loading...</div>}>
+      <h1 className="mt-12 text-xl font-semibold">
+        {cat?.collection?.name} For You!
+      </h1>
+      <Suspense fallback={<Skeleton />}>
         <ProductList
           categoryId={
             cat.collection?._id || "00000000-000000-000000-000000000001"
